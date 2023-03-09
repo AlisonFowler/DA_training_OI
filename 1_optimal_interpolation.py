@@ -109,7 +109,7 @@ with st.sidebar:
     sigf = st.slider('Background error standard deviation', 0.0, 1.0, 0.1, 0.1) 
 
     Lf = st.slider('Background error correlation length scale', 0.0, 2.0, 1.0, 0.2)
-    Lo   = st.slider('Observation error correlation length scale', 0.0, 2.0, 0.0, 0.2) 
+    Lo   = st.slider('Observation error correlation length scale', 0.0, 5.0, 0.0, 1.0) 
 
 # These parameters are not adjustable via the Streamlit widgets
 
@@ -133,12 +133,12 @@ sum_C = sigf*sigf*cf12 + sigo*sigo*co12 # var_b*rho(x1,x2) + var_o*rho(x1,x2)
 
 
 # structure functions of B
-BH1 = np.array([soar2(xi, x1, Lf) for xi in x]) # rho(x,x1), (xdim x 1) vector
-BH2 = np.array([soar2(xi, x2, Lf) for xi in x]) # rho(x,x2), (xdim x 1) vector
+BH1 = sigf*sigf*np.array([soar2(xi, x1, Lf) for xi in x]) # rho(x,x1), (xdim x 1) vector
+BH2 = sigf*sigf*np.array([soar2(xi, x2, Lf) for xi in x]) # rho(x,x2), (xdim x 1) vector
   
-Nf =   sum_sigma*sum_sigma + sum_C*sum_C
+Nf =   sum_sigma*sum_sigma - sum_C*sum_C
 
-incr = BH1*(sum_sigma*d1-sum_C*d2)+BH1*(sum_sigma*d2-sum_C*d1)/Nf
+incr = (BH1*(sum_sigma*d1-sum_C*d2)+BH2*(sum_sigma*d2-sum_C*d1))/Nf
   
 a  = fb + incr        # analysis for 2 obs case
 
