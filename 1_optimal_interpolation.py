@@ -106,7 +106,7 @@ with st.sidebar:
     o2 = st.slider('Second observation value', -1.0, 0.0, -0.6, 0.2)
 
     sigo = st.slider('Observation error standard deviation', 0.0, 1.0, 0.1, 0.1)
-    sigf = st.slider('Background error standard deviation', 0.0, 1.0, 0.1, 0.2) 
+    sigf = st.slider('Background error standard deviation', 0.0, 1.0, 0.1, 0.1) 
 
     Lf = st.slider('Background error correlation length scale', 0.0, 2.0, 1.0, 0.2)
     Lo   = st.slider('Observation error correlation length scale', 0.0, 2.0, 0.0, 0.2) 
@@ -127,28 +127,20 @@ d2 = o2 - Hfb(x2)
 cf12 = soar2(x1, x2, Lf) # background
 co12 = soar2(x1, x2, Lo) # observations
 
-C = sigf*sigf*cf12 + sigo*sigo*co12 # var_b*rho(x1,x2) + var_o*rho(x1,x2)
+sum_sigma = sigf*sigf+sigo*sigo
 
-C = C/(sigf*sigf+sigo*sigo)         # [var_b*rho(x1,x2) + var_o*rho(x1,x2)]/[var_b+var_o]
+sum_C = sigf*sigf*cf12 + sigo*sigo*co12 # var_b*rho(x1,x2) + var_o*rho(x1,x2)
 
-W = (sigf*sigf+sigo*sigo)*(1.-C*C) 
 
-W = sigf*sigf/W 
-
-# weight for a single ob:  var_b/(var_b+var_o)
-W1 = sigf*sigf/(sigf*sigf+sigo*sigo)
-
-# OI analysis
-cf1 = np.array([soar2(xi, x1, Lf) for xi in x]) # rho(x,x1), (xdim x 1) vector
-cf2 = np.array([soar2(xi, x2, Lf) for xi in x]) # rho(x,x2), (xdim x 1) vector
+# structure functions of B
+BH1 = np.array([soar2(xi, x1, Lf) for xi in x]) # rho(x,x1), (xdim x 1) vector
+BH2 = np.array([soar2(xi, x2, Lf) for xi in x]) # rho(x,x2), (xdim x 1) vector
   
-z = cf1*(d1-C*d2)+cf2*(d2-C*d1);   
+Nf =   sum_sigma*sum_sigma + sum_C*sum_C
+
+incr = BH1*(sum_sigma*d1-sum_C*d2)+BH1*(sum_sigma*d2-sum_C*d1)/Nf
   
-a  = fb + W*z        # analysis for 2 obs case
-# If you want, you can re-enable the calculation of the analysis with only one observation
-# by uncommenting the following two lines
-#a1 = fb + cf1*W1*d1  # analysis for o1 only
-#a2 = fb + cf2*W1*d2  # analysis for o2 only
+a  = fb + incr        # analysis for 2 obs case
 
 # Plot the data
 fig = plt.figure()
