@@ -109,7 +109,7 @@ with st.sidebar:
     sigf = st.slider('Background error standard deviation', 0.0, 1.0, 0.1, 0.2) 
 
     Lf = st.slider('Background error correlation length scale', 0.0, 2.0, 1.0, 0.2)
-    Lo   = st.slider('Observation error correlation length scale', 0.0, 2.0, 1.0, 0.0) 
+    Lo   = st.slider('Observation error correlation length scale', 0.0, 2.0, 0.0, 0.2) 
 
 # These parameters are not adjustable via the Streamlit widgets
 
