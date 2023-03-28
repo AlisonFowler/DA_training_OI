@@ -79,7 +79,7 @@ st.markdown('Use the selection boxes and sliders in the left-hand control panel 
             'The plot will automatically update, although you might have to wait a few seconds '
             'after changing a parameter value.')
 st.markdown('Choose the shape of the background function from the drop-down list, and set '
-            'the location and the values of two observations using the sliders.')
+            'the location of two observations using the sliders.')
 st.markdown('We address the role of uncertainty by choosing different standard deviations '
             'for the observation error and background error using the respective sliders.'
             ' What happens when the observations '
@@ -87,13 +87,12 @@ st.markdown('We address the role of uncertainty by choosing different standard d
             'Increase the standard deviation incrementally until you reach the maximum '
             'value and observe how the analysis changes and compares to the background.')
 st.markdown('To experiment with the spread of information to unobserved variables, first change '
-            'the background error correlation length scale when the observation error correlation'
+            'the background error correlation length scale when the observation error correlation '
             'length scale is set to zero. At which locations is the '
-            'analysis different from the background? How does this change when the correlation '
-            'length scale is increased or decreased?')
-st.markdown('Next, explore increasing the observation error correlation'
+            'analysis different from the background? ')
+st.markdown('Next, explore increasing the observation error correlation '
             'length scale. How does this change the spread in information? How does this change'
-            ' when the observations are bought closer together?')
+            ' when the observations are brought closer together?')
 
 
 # set x values at which equations are solved
@@ -181,8 +180,8 @@ st.markdown('We performed simple data assimilation experiments, changing the obs
             'observation uncertainty draws the analysis closer to observations, whereas '
             'large observation uncertainty means that the analysis is more similar to the '
             'background. A small background error correlation length scale indicates that changes in one '
-            'variable affect only the variables that are close to it.'
-            'A large observation error correlation length scale allows observations'
+            'variable affect only the variables that are close to it. '
+            'A large observation error correlation length scale allows observations '
             'to provide more information on the spatial gradients of the state variable.')
 
 st.subheader("Acknowledgements")
