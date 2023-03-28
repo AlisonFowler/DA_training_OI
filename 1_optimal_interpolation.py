@@ -55,6 +55,16 @@ st.markdown('In this interactive demo, we perform data assimilation in order to 
             'is used. This computes an updated estimated of the state given a first guess, ${\bf x}_b$,'
             'observations, ${\bf y}$, and the mapping from the state variables to those observed, $h()$.')
 st.markdown('$x_a=x_b+{\bf 𝐊}(𝐲−h(𝐱_b))$, ')
+latext = r'''
+## Latex example
+### full equation 
+$$ 
+{\bf x}_a={\bf x}_b+{\bf 𝐊}({\bf x}−h({\bf x}_b)) 
+$$ 
+### inline
+Assume $\frac{a}{b}=1$ and $\sigma=0$...  
+'''
+st.write(latext)
 st.markdown('where {\bf K} controls the weighting given to the observations versus the first guess.'
             '{\bf K} is a function of the error covariance matrices for the background, {\bf B},'
             ' and the observations, {\bf R}, as well as the Jacobian of the observation'
