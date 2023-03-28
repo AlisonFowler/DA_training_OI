@@ -54,16 +54,16 @@ st.subheader('Introduction')
 latext = r'''
 In this interactive demo, we perform data assimilation in order to 
 estimate the values of a function over the interval [0,10]. 
-A simple data assimilation scheme, called \emph{optimal interpolation},
-is used. This computes an updated estimated of the state given a first guess, ${\bf x}_b$,
+A simple data assimilation scheme, called _optimal interpolation_,
+is used. This computes an updated estimated of the state given a first guess (the background), ${\bf x}_b$,
 observations, ${\bf y}$, and the mapping from the state variables to those observed, $h()$.
 $$ 
 {\bf x}_a={\bf x}_b+{\bf 𝐊}({\bf x}−h({\bf x}_b)).
 $$ 
-{\bf K} controls the weighting given to the observations versus the first guess and
-is a function of the error covariance matrices for the background, {\bf B},
-and the observations, {\bf R}, as well as the Jacobian of the observation
-operator, {\bf H}.
+${\bf K}$ controls the weighting given to the observations versus the background and
+is a function of the error covariance matrices for the background, ${\bf B}$,
+and the observations, ${\bf R}$, as well as the Jacobian of the observation
+operator, ${\bf H}$.
 $$ 
 {\bf K={\bf BH}^{\rm T}({\bf HBH}^{\rm T}+{\bf R}})^{-1}.
 $$ 
@@ -71,7 +71,7 @@ $$
 st.write(latext)
 
 st.markdown('The exercises explore two ideas:')
-st.markdown('1. the effect of the uncertainty in the observations on the analysis')
+st.markdown('1. the effect of the uncertainty in the observations and background on the analysis')
 st.markdown('2. how the information from observations is spread to the unobserved variables.')
 
 st.subheader("Instructions")
@@ -81,14 +81,19 @@ st.markdown('Use the selection boxes and sliders in the left-hand control panel 
 st.markdown('Choose the shape of the background function from the drop-down list, and set '
             'the location and the values of two observations using the sliders.')
 st.markdown('We address the role of uncertainty by choosing different standard deviations '
-            'for the observation error using the slider. What happens when the observations '
+            'for the observation error and background error using the respective sliders.'
+            ' What happens when the observations '
             'are assumed to be perfect and hence the standard deviation is set to zero? '
             'Increase the standard deviation incrementally until you reach the maximum '
             'value and observe how the analysis changes and compares to the background.')
-st.markdown('To experiment with the spread of information to unobserved variables, change '
-            'the background error correlation length scale. At which locations is the '
+st.markdown('To experiment with the spread of information to unobserved variables, first change '
+            'the background error correlation length scale when the observation error correlation'
+            'length scale is set to zero. At which locations is the '
             'analysis different from the background? How does this change when the correlation '
             'length scale is increased or decreased?')
+st.markdown('Next, explore increasing the observation error correlation'
+            'length scale. How does this change the spread in information? How does this change'
+            ' when the observations are bought closer together?')
 
 
 # set x values at which equations are solved
