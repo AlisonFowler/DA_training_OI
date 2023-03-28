@@ -49,20 +49,24 @@ def get_background_function(bg_type, x):
 
 st.title('Optimal interpolation demonstration')
 st.subheader('Introduction')
-st.markdown('In this interactive demo, we perform data assimilation in order to '
-            'estimate the values of a function over the interval [0,10]. '
-            'A simple data assimilation scheme, called _optimal interpolation_, '
-            'is used. This computes an updated estimated of the state given a first guess, ${\bf x}_b$,'
-            'observations, ${\bf y}$, and the mapping from the state variables to those observed, $h()$.')
+
 
 latext = r'''
+In this interactive demo, we perform data assimilation in order to 
+estimate the values of a function over the interval [0,10]. 
+A simple data assimilation scheme, called \emph{optimal interpolation},
+is used. This computes an updated estimated of the state given a first guess, ${\bf x}_b$,
+observations, ${\bf y}$, and the mapping from the state variables to those observed, $h()$.
 $$ 
-{\bf x}_a={\bf x}_b+{\bf 𝐊}({\bf x}−h({\bf x}_b)), 
+{\bf x}_a={\bf x}_b+{\bf 𝐊}({\bf x}−h({\bf x}_b)).
 $$ 
-'where {\bf K} controls the weighting given to the observations versus the first guess.'
-'{\bf K} is a function of the error covariance matrices for the background, {\bf B},'
-' and the observations, {\bf R}, as well as the Jacobian of the observation'
-'operator, {\bf H}.'
+{\bf K} controls the weighting given to the observations versus the first guess and
+is a function of the error covariance matrices for the background, {\bf B},
+and the observations, {\bf R}, as well as the Jacobian of the observation
+operator, {\bf H}.
+$$ 
+{\bf K={\bf BH}^{\rm T}({\bf HBH}^{\rm T}+{\bf R}})^{-1}.
+$$ 
 '''
 st.write(latext)
 
