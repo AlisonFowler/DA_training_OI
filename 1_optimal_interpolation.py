@@ -52,10 +52,8 @@ st.subheader('Introduction')
 st.markdown('In this interactive demo, we perform data assimilation in order to '
             'estimate the values of a function over the interval [0,10]. '
             'A simple data assimilation scheme, called _optimal interpolation_, '
-            'is used. We do not focus on the details of the scheme, but recap '
-            'the necessary components for data assimilation that are used: '
-            'the _background_, _observations_, _error covariances_, and '
-            '_observation operator_.')
+            'is used. This computes an updated estimated of the state as'
+             '$𝐱_a=𝒙_b^𝑖+𝐊^𝑖 (𝐲^𝑖−ℎ(𝐱_b))$ ')
 
 st.markdown('The exercises explore two ideas:')
 st.markdown('1. the effect of the uncertainty in the observations on the analysis')
