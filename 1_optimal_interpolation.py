@@ -52,8 +52,13 @@ st.subheader('Introduction')
 st.markdown('In this interactive demo, we perform data assimilation in order to '
             'estimate the values of a function over the interval [0,10]. '
             'A simple data assimilation scheme, called _optimal interpolation_, '
-            'is used. This computes an updated estimated of the state as'
-             '$𝐱_a=𝒙_b^𝑖+𝐊^𝑖 (𝐲^𝑖−ℎ(𝐱_b))$ ')
+            'is used. This computes an updated estimated of the state given a first guess, ${\bf x}_b$,'
+            'observations, ${\bf y}$, and the mapping from the state variables to those observed, $h()$.')
+st.markdown('$x_a=x_b+{\bf 𝐊}(𝐲−h(𝐱_b))$, ')
+st.markdown('where {\bf K} controls the weighting given to the observations versus the first guess.'
+            '{\bf K} is a function of the error covariance matrices for the background, {\bf B},'
+            ' and the observations, {\bf R}, as well as the Jacobian of the observation'
+            'operator, {\bf H}.')
 
 st.markdown('The exercises explore two ideas:')
 st.markdown('1. the effect of the uncertainty in the observations on the analysis')
