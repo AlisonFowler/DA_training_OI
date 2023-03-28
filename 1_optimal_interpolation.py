@@ -119,9 +119,9 @@ with st.sidebar:
     fb = get_background_function(bg_func, x)
 
     x1 = st.slider('First observation location', 0, 4, 1)
-    o1 = st.slider('First observation value', 0.0, 1.0, 0.4, 0.2)
+    #o1 = st.slider('First observation value', 0.0, 1.0, 0.4, 0.2)
     x2 = st.slider('Second observation location', 5, 10, 7)
-    o2 = st.slider('Second observation value', -1.0, 0.0, -0.6, 0.2)
+    #o2 = st.slider('Second observation value', -1.0, 0.0, -0.6, 0.2)
 
     sigo = st.slider('Observation error standard deviation', 0.0, 1.0, 0.1, 0.1)
     sigf = st.slider('Background error standard deviation', 0.0, 1.0, 0.1, 0.1) 
@@ -130,6 +130,8 @@ with st.sidebar:
     Lo   = st.slider('Observation error correlation length scale', 0.0, 5.0, 0.0, 1.0) 
 
 # These parameters are not adjustable via the Streamlit widgets
+o1 = 0.5
+o2 = -0.5
 
 # get value of background field at observation locations, Hxb
 
