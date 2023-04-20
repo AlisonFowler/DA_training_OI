@@ -58,7 +58,7 @@ A simple data assimilation scheme, called _optimal interpolation_,
 is used. This computes an updated estimated of the state given a first guess (the background), ${\bf x}_b$,
 observations, ${\bf y}$, and the mapping from the state variables to those observed, $h()$.
 $$ 
-{\bf x}_a={\bf x}_b+{\bf 𝐊}({\bf x}−h({\bf x}_b)).
+{\bf x}_a={\bf x}_b+{\bf 𝐊}({\bf y}−h({\bf x}_b)).
 $$ 
 ${\bf K}$ controls the weighting given to the observations versus the background and
 is a function of the error covariance matrices for the background, ${\bf B}$,
