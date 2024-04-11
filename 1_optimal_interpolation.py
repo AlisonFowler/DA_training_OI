@@ -180,7 +180,7 @@ st.markdown('We performed simple data assimilation experiments, changing the obs
             'observation uncertainty draws the analysis closer to observations, whereas '
             'large observation uncertainty means that the analysis is more similar to the '
             'background. A small background error correlation length scale indicates that changes in one '
-            'variable affect only the variables that are close to it. '
+            'variable affects only the variables that are close to it. '
             'A large observation error correlation length scale allows observations '
             'to provide more information on the spatial gradients of the state variable.')
 
