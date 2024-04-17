@@ -176,7 +176,7 @@ st.write(fig)
 
 st.subheader("Conclusions")
 st.markdown('We performed simple data assimilation experiments, changing the observation and background '
-            'uncertainties and their error correlation length scale. )
+            'uncertainties and their error correlation length scale. ')
 st.markdown('A small '
             'observation uncertainty draws the analysis closer to observations, whereas '
             'large observation uncertainty means that the analysis is more similar to the '
