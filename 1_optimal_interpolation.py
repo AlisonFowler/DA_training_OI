@@ -71,7 +71,7 @@ $$
 st.write(latext)
 
 st.markdown('The exercises explore two ideas:')
-st.markdown('1. the effect of the uncertainty in the observations and background on the analysis')
+st.markdown('1. the effect of the uncertainty in the observations and background on the analysis.')
 st.markdown('2. how the information from observations is spread to the unobserved variables.')
 
 st.subheader("Instructions")
@@ -176,12 +176,16 @@ st.write(fig)
 
 st.subheader("Conclusions")
 st.markdown('We performed simple data assimilation experiments, changing the observation and background '
-            'uncertainties and their error correlation length scale. A small '
+            'uncertainties and their error correlation length scale. )
+st.markdown('A small '
             'observation uncertainty draws the analysis closer to observations, whereas '
             'large observation uncertainty means that the analysis is more similar to the '
-            'background. A small background error correlation length scale indicates that changes in one '
-            'variable affects only the variables that are close to it. '
-            'A large observation error correlation length scale allows observations '
+            'background.)
+st.markdown(' A small background error correlation length scale indicates that changes in one '
+            'variable affects only the variables that are close to it. A large background error '
+            'correlation lengthscale allows the information in the observations to be spread and'
+            ' the background to be updated over a larger region'  )
+st.markdown('A large observation error correlation length scale allows observations '
             'to provide more information on the spatial gradients of the state variable.')
 
 st.subheader("Acknowledgements")
