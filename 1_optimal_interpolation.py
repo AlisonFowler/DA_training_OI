@@ -7,7 +7,7 @@ from scipy import interpolate
 import matplotlib.pyplot as plt
 
 
-@st.cache
+@st.cache_data
 def soar2(x1, x2, L):
     '''
     function to compute correlation between two points x1, x2
@@ -28,7 +28,7 @@ def soar2(x1, x2, L):
         return 0.0
 
 
-@st.cache
+@st.cache_data
 def get_background_function(bg_type, x):
     '''Returns three diffrent options for the background function.'''
 
